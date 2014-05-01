@@ -130,7 +130,7 @@
 				<section>
 					<section>
 						<h3>You could do what we do (where I work)</h3>
-						<h2 class='fragment' style='color:#FDA'>Trial and Error AD HOC<super>*</super></h2>
+						<h2 class='fragment' style='color:#FDA'>Reactionary Trial and Error<super>*</super></h2>
 						<p class='fragment'><BR><super>*</super>not recommended</p>
 						<p class='fragment'>No, really... <span style='color:#FDA'>I'm stuck doing it right now</span> as I desperately try to make the time to finish writing this presentation</p>
 					</section>
@@ -141,29 +141,94 @@
 						<h5><br/><br/>shit<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></h5>
 						<p class='fragment'>At least, this is what the person who reported it thinks is happening</p>
 					</section>
-					<section data-background='img/slide_environment_intro_4_models.png'>
-						<h3><br/><br/><br/>data models</h3>
+					<section data-background='img/slide_adhoc_3.png'>
+						<h3><br/><br/><br/>it could be *anywhere* along this path</h3>
 					</section>
-					<section data-background='img/slide_environment_intro_3_logic.png'>
-						<h3><br/><br/><br/>business logic functions</h3>
+					<section data-background='img/slide_adhoc_4.png'>
+						<h3><br/><br/><br/>sticking a <span style='color:#FDA'>warn()</span> or a <span style='color:#FDA'>die()</span> here...</h3>
 					</section>
-					
+					<section data-background='img/slide_adhoc_3.png'>
+						<h4><br/><br/><br/><br/><br/><br/>...is effectively poking at all of this with a stick.</h4>
+					</section>
+					<section data-background='img/slide_adhoc_5.png'>
+						<h3><br/><br/><br/>trying to poke at it a bit further down, like here</h3>
+					</section>
+					<section data-background='img/slide_adhoc_6.png'>
+						<h4><br/><br/><br/><br/><br/><br/>...is still effectively including all this.</h4>			
+					</section>
+					<section data-background='img/slide_adhoc_7.png'>
+						<h3><br/><br/><br/>hell, that may even include all this!</h3>
+					</section>
+					<section>
+						<h2>This is not testing</h2>
+						<p class='fragment'>This is trying to patch holes in a boat that sailed fifteen years ago and has never since seen shore.</p>
+					</section>
+				</section>
+				
+				<section>
+					<h2>Let's establish some terminology</h2>
+				</section>
+				
+				<section>
+					<section>
+						<h1>Code Coverage</h1>
+						<p class='fragment'>The degree to which your source code is even being tested by your test suite.</p>
+						<aside class='notes'>
+							re: http://en.wikipedia.org/wiki/Code_coverage
+							re: examples from ovid, kthx
+						</aside>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h1>System testing</h1>
+						<p class='fragment'>The act of testing an entire sequences of events</p>
+						<aside class='notes'>
+							re: http://en.wikipedia.org/wiki/System_testing
+						</aside>
+					</section>
+					<section>
+						<h3><span style='color:#FDA'>End-to-end</span> testing may include, for example</h3>
+						<ul>
+							<li class='fragment'>A login</li>
+							<li class='fragment'>Creating an entry via a form or api</li>
+							<li class='fragment'>Editing newly created entry</li>
+							<li class='fragment'>Sending or printing entry details</li>
+							<li class='fragment'>Any processing or rendering involved</li>
+							<li class='fragment'>Deletion of entry</li>
+							<li class='fragment'>Confirmation of deletion</li>
+							<li class='fragment'>Logging off again</li>
+						</ul>
+					</section>
+					<section>
+						<h3>This might be language agnostic</h3>
+						<p>Whether by hand or through an automatic testing framework, this is about knowing that an entire system of expectations are functioning as expected.</p>
+						<p class='fragment'>It will not tell you much about any given failure, but at least it will tell that there was one, and where to begin looking.</p>
+						<p class='fragment' style='color:#FDA'>This might, in fact, be the final test you run after pushing any update to a staging environment.</p>
+					</section>
 				</section>
 
 				<section>
-					<h2>Variations on code testing...</h2>
-					<p></p>
+					<section>
+						<h2>Integration testing</h2>
+						<p></p>
 
-					<aside class="notes"></aside>
+						<aside class="notes"></aside>
+					</section>
 				</section>
-
+				
 				<section>
-					<h2>What is testing?</h2>
-					<p></p>
-
-					<aside class="notes"></aside>
+					<section>
+						<h2>Unit testing</h2>
+						<p></p>
+						
+						<aside class="notes">
+							re: ovid: unit testing focuses on units, but units often talk to each other, so this cannot reach 100% code coverage
+						</aside>
+					</section>
 				</section>
-	
+
 				<section>
 					<h1>THE END?</h1>
 					<h3>Joshua Eric Turcotte</h3>
