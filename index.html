@@ -176,6 +176,17 @@
 						<aside class='notes'>
 							re: http://en.wikipedia.org/wiki/Code_coverage
 							re: examples from ovid, kthx
+							re: sub reciprocal { return 1 / shift }
+							re: is reciprocal(2), 0.5, 'reciprocal is correct';
+							re: this gives 100% code coverage
+							re: but it covers only one expectation
+							re: what about floating point number error
+							re: what about passing a string
+							re: what about passing no argument at all
+							re: what about things that dont make sense, like temperature
+							re: anything that evals to 1 will pass the test
+							re: what about testing code that is never used
+							re: it may work, but its dead weight
 						</aside>
 					</section>
 				</section>
@@ -201,8 +212,20 @@
 							<li class='fragment'>Logging off again</li>
 						</ul>
 					</section>
+					<section data-background='img/slide_system_1.png'>
+						<h3><br/><br/><br/>such a test might look like this</h3>
+					</section>
+					<section data-background='img/slide_system_2.png'>
+						<h3><br/><br/><br/>which essentially tests all this</h3>
+					</section>
+					<section data-background='img/slide_system_3.png'>
+						<h3><br/><br/><br/>and a failure here</h3>
+					</section>
+					<section data-background='img/slide_system_4.png'>
+						<h3><br/><br/><br/>could have happened nearly anywhere</h3>
+					</section>
 					<section>
-						<h3>This might be language agnostic</h3>
+						<h3>This may be language agnostic</h3>
 						<p>Whether by hand or through an automatic testing framework, this is about knowing that an entire system of expectations are functioning as expected.</p>
 						<p class='fragment'>It will not tell you much about any given failure, but at least it will tell that there was one, and where to begin looking.</p>
 						<p class='fragment' style='color:#FDA'>This might, in fact, be the final test you run after pushing any update to a staging environment.</p>
@@ -211,17 +234,20 @@
 
 				<section>
 					<section>
-						<h2>Integration testing</h2>
-						<p></p>
-
-						<aside class="notes"></aside>
+						<h1>Integration testing</h1>
+						<p class='fragment'>The act of testing individual components in an iterative way or all together.</p>
+						<aside class="notes">
+							re: working to expose defects in interfaces and interactions between ingregrated components/modules.
+							re: progressively larger integrations of components are rested until the entire system has been.
+						</aside>
 					</section>
 				</section>
 				
 				<section>
 					<section>
-						<h2>Unit testing</h2>
-						<p></p>
+						<h1>Unit testing</h1>
+						<p class='fragment'>Also known as <span style='color:#FDA'>component testing</span>,<BR>this is the act of testing the smallest units of code.</p>
+						<p class='fragment'>The atoms, themselves, from which the greater logic is constructed</p>
 						
 						<aside class="notes">
 							re: ovid: unit testing focuses on units, but units often talk to each other, so this cannot reach 100% code coverage
