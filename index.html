@@ -59,39 +59,7 @@
 						<h1 class='fragment'>So speak up =)</h1>
 					</section>
 				</section>
-
-				<section>
-					<section>
-						<h2>So, why test your code?</h2>
-						<aside class="notes">
-							
-						</aside>
-					</section>
-					<section>
-						<h3>Isolation of bugs?</h2>
-						<aside class="notes">
-							
-						</aside>
-					</section>
-					<section>
-						<h3>Cathing future incidents?</h2>
-						<aside class="notes">
-							
-						</aside>
-					</section>
-					<section>
-						<h3>Writing better code?</h2>
-						<aside class="notes">
-							
-						</aside>
-					</section>
-					<section>
-						<h3>Maybe even saving time?</h2>
-						<aside class="notes">
-							
-						</aside>
-					</section>
-				</section>
+		
 				
 				<section>
 					<section>
@@ -126,6 +94,7 @@
 						<h3>So what methods might try to do this?</h3>
 					</section>
 				</section>
+			
 				
 				<section>
 					<section>
@@ -139,7 +108,7 @@
 					</section>
 					<section data-background='img/slide_adhoc_2.png'>
 						<h5><br/><br/>shit<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></h5>
-						<p class='fragment'>At least, this is what the person who reported it thinks is happening</p>
+						<h3 class='fragment'>A User found it before we did!</h3>
 					</section>
 					<section data-background='img/slide_adhoc_3.png'>
 						<h3><br/><br/><br/>it could be *anywhere* along this path</h3>
@@ -164,10 +133,12 @@
 						<p class='fragment'>This is trying to patch holes in a boat that sailed fifteen years ago and has never since seen shore.</p>
 					</section>
 				</section>
+	
 				
 				<section>
 					<h2>Let's establish some terminology</h2>
 				</section>
+	
 				
 				<section>
 					<section>
@@ -186,10 +157,45 @@
 							re: what about things that dont make sense, like temperature
 							re: anything that evals to 1 will pass the test
 							re: what about testing code that is never used
+							re: you want to prove codes doesnt' do what you dont want to do
+							re: false confidence
 							re: it may work, but its dead weight
 						</aside>
 					</section>
 				</section>
+
+
+				<section>
+					<section>
+						<h1>Unit testing</h1>
+						<p class='fragment'>Also known as <span style='color:#FDA'>component testing</span>,<BR>this is the act of testing the smallest units of code.</p>
+						<p class='fragment'>The atoms, themselves, from which the greater logic is constructed</p>
+						
+						<aside class="notes">
+							re: ovid: unit testing focuses on units, but units often talk to each other, so this cannot reach 100% code coverage
+						</aside>
+					</section>
+				</section>
+
+
+				<section>
+					<section>
+						<h1>Integration testing</h1>
+						<p class='fragment'>The act of testing individual components in an<BR>iterative way or all together.</p>
+						<aside class="notes">
+							re: working to expose defects in interfaces and interactions between ingregrated components/modules.
+							re: progressively larger integrations of components are rested until the entire system has been.
+							re: because unit tests don't test how routines talk to other routes, integration testing is needed, too
+						</aside>
+					</section>
+					<section data-background='img/slide_integration_1.png'>
+						<h3><br/><br/><br/>By testing higher level code here</h3>
+					</section>
+					<section data-background='img/slide_integration_2.png'>
+						<h3><br/><br/><br/>You are testing that its components work together</h3>
+					</section>
+				</section>
+				
 				
 				<section>
 					<section>
@@ -232,25 +238,69 @@
 					</section>
 				</section>
 
+
 				<section>
 					<section>
-						<h1>Integration testing</h1>
-						<p class='fragment'>The act of testing individual components in an iterative way or all together.</p>
+						<h1>Dead Code</h1>
+						<p class='fragment'>Code that may work and still be presentended in your test suite <span class='fragment' style='color:#FDA'>but never gets called</span></p>
+						<aside class='notes'>
+							re: unit tests only test that a peice of code does and doesn't do things correctly
+							re: even integration tests may overlook the the fact that entire cross-communicating blocks of code are no longer used
+							re: its mention in tests may compel people to keep using it
+						</aside>
+					</section>
+					<section data-background='img/slide_deadcode_1.png'>
+						<h4><br/><br/><br/><br/><br/><br/>So, even if you have <span style='color:#FDA'>system</span>, <span style='color:#FDA'>integration </span> <i>and&nbsp;</i> <span style='color:#FDA'>unit</span> testing</h4>
+					</section>
+					<section data-background='img/slide_deadcode_1.png'>
+						<h4><br/><br/><br/><br/><br/><br/>Entire blocks of no longer used code may be entirely overlooked.</h4>
+					</section>
+					<section>
+						<h3>So this can make already long tests even longer</h3>
+						<p class='fragment'>While inclusion in test suites may lead people to believe the code is still valid and should be retained.</p>
+						<p class='fragment'><a href='https://www.youtube.com/watch?v=4kMySZv65gc'>Curtis 'Ovid' Poe recommends</a> categorizing the tests in your <span style='color:#FDA'>/t</span> directory into subdirectories (such as <span style='color:#FDA'>/api</span>, <span style='color:#FDA'>/integration</span>, <span style='color:#FDA'>/unit</span>, etc) to help better visualize what your test coverage actually is</p> 
+					</section>
+				</section>
+		
+								
+				<section>
+					<section>
+						<h2>So, why test your code?</h2>
 						<aside class="notes">
-							re: working to expose defects in interfaces and interactions between ingregrated components/modules.
-							re: progressively larger integrations of components are rested until the entire system has been.
+							
+						</aside>
+					</section>
+					<section>
+						<h3>Isolation of bugs?</h2>
+						<aside class="notes">
+							
+						</aside>
+					</section>
+					<section>
+						<h3>Cathing future incidents?</h2>
+						<aside class="notes">
+							
+						</aside>
+					</section>
+					<section>
+						<h3>Writing better code?</h2>
+						<aside class="notes">
+							
+						</aside>
+					</section>
+					<section>
+						<h3>Maybe even saving time?</h2>
+						<aside class="notes">
+							
 						</aside>
 					</section>
 				</section>
-				
+
 				<section>
 					<section>
-						<h1>Unit testing</h1>
-						<p class='fragment'>Also known as <span style='color:#FDA'>component testing</span>,<BR>this is the act of testing the smallest units of code.</p>
-						<p class='fragment'>The atoms, themselves, from which the greater logic is constructed</p>
-						
-						<aside class="notes">
-							re: ovid: unit testing focuses on units, but units often talk to each other, so this cannot reach 100% code coverage
+						<h1>Good practices</h2>
+						<aside class='notes'>
+							re: write tests so they CAN be read as documentation
 						</aside>
 					</section>
 				</section>
