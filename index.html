@@ -292,6 +292,55 @@
 						<p class='fragment'><a href='https://www.youtube.com/watch?v=4kMySZv65gc'>Curtis 'Ovid' Poe recommends</a> categorizing the tests in your <span style='color:#FDA'>/t</span> directory into subdirectories (such as <span style='color:#FDA'>/api</span>, <span style='color:#FDA'>/integration</span>, <span style='color:#FDA'>/unit</span>, etc) to help better visualize what your test coverage actually is</p> 
 					</section>
 				</section>
+				
+				<section>
+					<section>
+						<h1>mock</h1>
+						<p>A simulated data object or set of arguments useful in passing to a unit or ingegration test.</p>
+						<aside class='notes'>
+							re: http://en.wikipedia.org/wiki/Mock_object
+						</aside>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h1>xUnit</h1>
+						<p class='fragment'>A multi component style of testing, run as a framework</p>
+						<p class='fragment'>Since a few of perl's popular testing frameworks operate according to xUnit concepts, the following concepts should be mentioned.
+						<aside class='notes'>
+							re: http://en.wikipedia.org/wiki/XUnit
+						</aside>
+					</section>
+					<section>
+						<h2>Test case</h2>
+						<p>Often written as a class, this is the core definition of what a test is, and all other tests typically inherit their functionality from here.</p>
+					</section>
+					<section>
+						<h2>Test fixture</h2>
+						<p>A set of pre-conditions or states needed to run any given test.</p>
+						<p class='fragment'>One should set up a known-to-be-good fixture before running tests and return to any original or default state when done.</p>
+						<p class='fragment'>These are typically known as the <span style='color:#FDA'>setup()</span> and <span style='color:#FDA'>teardown()</span>.
+					</section>
+					<section>
+						<h2>Test suite</h2>
+						<p>The suite is a collection of tests that all share the same fixture.</p>
+						<p class='fragment'>If well designed, the order of tests in the suite should not matter, and tests in a random order is often a test in and of itself</p>
+					</section>
+					<section>
+						<h2>Test execution</h2>
+						<p>In any given unit test, the execution occurs between the <span style='color:#FDA'>setup()</span> and <span style='color:#FDA'>teardown()</span> procedures, and can include any number of atomic tests.</p>
+					</section>
+					<section>
+						<h2>Assertion</h2>
+						<p>An assertion is a logical condition run against a function, macro, or fixture that seeks for each result to be true.</p>
+						<p class='fragment'>The failure of any given assertion typically throws an exception or returns false, and indicates an unexpected or undesirable result</p>
+					</section>
+					<section>
+						<h2>Test result formatter</h2>
+						<p>The formatter is a part of the framework responsible for formatting the results of any or all of the given test suites into human-readable content.</p>
+					</section>
+				</section>
 
 				<section>
 					<h1>Back to unit testing...</h1>
@@ -322,8 +371,64 @@
 				</section>
 
 				<section>
-					<h1>Now for some code</h1>
+					<h1>Now, regarding perl...</h1>
 				</section>
+				
+				<section>
+					<section>
+						<h2>A few perl testing frameworks</h2>
+						<ul>
+							<li class='fragment'>Test::Class &mdash; an xUnit style framework</li>
+							<li class='fragment'>Test::Unit &mdash; another xUnit framework</li>
+							<li class='fragment'>Moose::Test &mdash; a test runner for Moose</li>
+							<li class='fragment'>Test::FIT &mdash; 'framework for interactive testing'</li>
+							<li class='fragment'>Test::Cukes &mdash; scenario-based testing suite</li>
+						</ul>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h2>Test::More</h2>
+						<p>This is the go-to perl testing framework that ships with perl itself</p>
+						<p class='fragment'>If you are completely brand new to unit testing with perl, consider starting with <span style='color:#FDA'>Test::Simple</span> first.</p>
+						<aside class='notes'></aside>
+					</section>
+					<section>
+						<h3>Stolen straight from the CPAN</h3>
+						<pre>
+							<code data-trim contenteditable class='perl'>
+use Test::More;
+
+... run your tests ...
+
+... run your tests ...
+
+... run your tests ...
+
+... run your tests ...
+
+done_testing( $number_of_tests_run );
+
+							</code>
+						</pre>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h2>TAP (test anything protocol)</h2>
+						<p>A communication method between unit tests and any testing harness or suite, relaying the results of any given tests</p>
+						<aside class='notes'>
+							re: http://en.wikipedia.org/wiki/Test_Anything_Protocol
+						</aside>
+					</section>
+					<section>
+					</section>
+				</section>
+				
+
+							
 				
 				<section>
 					<section>
