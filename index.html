@@ -175,6 +175,18 @@
 							re: ovid: unit testing focuses on units, but units often talk to each other, so this cannot reach 100% code coverage
 						</aside>
 					</section>
+					<section data-background='img/slide_unit_1.png'>
+						<h3><br/><br/><br/>You are effectively testing a SINGLE routine</h3>
+					</section>
+					<section data-background='img/slide_unit_2.png'>
+						<h3><br/><br/><br/>It cannot test that, as a component, it is used right</h3>
+					</section>
+					<section data-background='img/slide_unit_1.png'>
+						<h3><br/><br/><br/>...just that it does do what it should do</h3>
+					</section>
+					<section data-background='img/slide_unit_1.png'>
+						<h3><br/><br/><br/>...and doesn't do what it shouldn't</h3>
+					</section>
 				</section>
 
 
@@ -193,6 +205,12 @@
 					</section>
 					<section data-background='img/slide_integration_2.png'>
 						<h3><br/><br/><br/>You are testing that its components work together</h3>
+					</section>
+					<section data-background='img/slide_integration_2.png'>
+						<h3><br/><br/><br/>If you've written thorough <span style='color:#FDA'>unit</span> tests...</h3>
+					</section>
+					<section data-background='img/slide_integration_3.png'>
+						<h3><br/><br/><br/>...then any error is in <i>how</i>&nbsp; they are used.</h3>
 					</section>
 				</section>
 				
@@ -237,7 +255,20 @@
 						<p class='fragment' style='color:#FDA'>This might, in fact, be the final test you run after pushing any update to a staging environment.</p>
 					</section>
 				</section>
-
+				
+				<section>
+					<section>
+						<h1>Regression Testing</h1>
+						<p class='fragment'>The act of testing to ensure a change in one place doesn't break code somewhere else</p>
+						<p class='fragment'>This is where higher level <span style='color:#FDA'>integration testing</span> or even end-to-end <span style='color:#FDA'>system testing</span> play their roles</p>
+					</section>
+					<section data-background='img/slide_regression_1.png'>
+						<h3><br/><br/><br/>Changes to one unit may work fine in one place</h3>
+					</section>
+					<section data-background='img/slide_regression_2.png'>
+						<h4><br/><br/><br/><br/><br/><br/>But thoroughly break another that was not part of its integration test.</h4>
+					</section>
+				</section>
 
 				<section>
 					<section>
@@ -261,41 +292,39 @@
 						<p class='fragment'><a href='https://www.youtube.com/watch?v=4kMySZv65gc'>Curtis 'Ovid' Poe recommends</a> categorizing the tests in your <span style='color:#FDA'>/t</span> directory into subdirectories (such as <span style='color:#FDA'>/api</span>, <span style='color:#FDA'>/integration</span>, <span style='color:#FDA'>/unit</span>, etc) to help better visualize what your test coverage actually is</p> 
 					</section>
 				</section>
-		
-								
+
+				<section>
+					<h1>Back to unit testing...</h1>
+					<h3>Reasons to do it</h3>
+				</section>
+				
 				<section>
 					<section>
-						<h2>So, why test your code?</h2>
-						<aside class="notes">
-							
-						</aside>
+						<h2>Isolate existing bugs</h2>
+						<p class='fragment'>If you're introducing tests to existing code, a good cadre of unit tests should make it easier for you to isolate just where the real flaw lies.</p>
 					</section>
 					<section>
-						<h3>Isolation of bugs?</h2>
-						<aside class="notes">
-							
-						</aside>
+						<h2>Prevent future bugs?</h2>
+						<p class='fragment'>Producing more resiliant code should be able to mean less emergencies in the future</p>
 					</section>
 					<section>
-						<h3>Cathing future incidents?</h2>
-						<aside class="notes">
-							
-						</aside>
+						<h2>Writing better code?</h2>
+						<p class='fragment'>If you are dealing with pretty awful or unit-test resistant code, then you very well may have to <span style='colof:#FDA'>refactor</span> your code to make it testable.</p>
+						<p class='fragment'>Not only would this make your code better, but it will make you a better coder</p>
 					</section>
 					<section>
-						<h3>Writing better code?</h2>
-						<aside class="notes">
-							
-						</aside>
-					</section>
-					<section>
-						<h3>Maybe even saving time?</h2>
-						<aside class="notes">
-							
-						</aside>
+						<h2>What about saving time?</h2>
+						<p class='fragment'>To be honest, if you have no tests yet, both writing and running them (and refactoring any code necessary,) are going to take time you didn't take before.</p>
+						<p class='fragment'>Further, relying too much of purely systemic testing can take a very long time</p>
+						<p class='fragment'>But, once you've refactored your code, <span class='fragment'>have solid and well-tested units,</span> <span class='fragment'>and strategically thorough integration tests,</span> <span class='fragment'>you really shouldn't have to run end-to-end system tests very often at all.</span></p>
+						<p class='fragment'>And, in the end, you might even be able to sleep at night</p>
 					</section>
 				</section>
 
+				<section>
+					<h1>Now for some code</h1>
+				</section>
+				
 				<section>
 					<section>
 						<h1>Good practices</h2>
