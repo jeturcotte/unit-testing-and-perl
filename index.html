@@ -371,7 +371,7 @@
 				</section>
 
 				<section>
-					<h1>Now, regarding perl...</h1>
+					<h1>re: perl...</h1>
 				</section>
 				
 				<section>
@@ -385,6 +385,9 @@
 							<li class='fragment'>Test::Cukes &mdash; scenario-based testing suite</li>
 						</ul>
 					</section>
+					<section>
+						<h3>
+					</section>
 				</section>
 				
 				<section>
@@ -395,40 +398,67 @@
 						<aside class='notes'></aside>
 					</section>
 					<section>
-						<h3>Stolen straight from the CPAN</h3>
+						<h3>Setting up a suite</h3>
 						<pre>
 							<code data-trim contenteditable class='perl'>
 use Test::More;
 
-... run your tests ...
-
-... run your tests ...
-
-... run your tests ...
-
-... run your tests ...
+my $var = 1;
+ok( $var == 1, '1 is numerical equally to 1' );
+is( $var, 1, '1 is, in fact, 1' );
+is( $var, 2, '2 is the same as 1' );
+isnt( $var, 2, '1 is not 2, no' );
 
 done_testing( $number_of_tests_run );
-
 							</code>
 						</pre>
-					</section>
-				</section>
-				
-				<section>
-					<section>
-						<h2>TAP (test anything protocol)</h2>
-						<p>A communication method between unit tests and any testing harness or suite, relaying the results of any given tests</p>
-						<aside class='notes'>
-							re: http://en.wikipedia.org/wiki/Test_Anything_Protocol
-						</aside>
+						<p>In this most basic test suite setup, the number of tests is not necessarily known.</p>
 					</section>
 					<section>
+						<h3>Running this test results in...</h3>
+						<pre>
+							<code data-trim contenteditable>
+jet$ perl t/practice_1.t 
+ok 1 - 1 is numerical equally to 1
+ok 2 - 1 is, in fact, 1
+not ok 3 - 2 is the same as 1
+#   Failed test '2 is the same as 1'
+#   at t/practice_1.t line 6.
+#          got: '1'
+#     expected: '2'
+ok 4 - 1 is not 2, no
+1..4
+# Looks like you failed 1 test of 4.
+							</code>
+						</pre>
+						<p class='fragment'>This result is referred to as TAP; the <span style='color:#FDA'>test anything protocol</span><p>
 					</section>
-				</section>
-				
+					<section>
+						<h3>Plan on how many tests you mean to run</h3>
+						<pre>
+							<code data-trim contenteditable class='perl'>
+use Test::More tests => 4;
 
-							
+my $var = 1;
+ok( $var == 1, '1 is numerical equally to 1' );
+is( $var, 1, '1 is, in fact, 1' );
+is( $var, 2, '2 is the same as 1' );
+isnt( $var, 2, '1 is not 2, no' );
+							</code>
+						</pre>
+						<p>While you could let <span style='color:#FDA'>$number_of_tests_run</span> automatically count the tests that WERE run, <span class='fragment'>tell the suite how many should have run using <span style='color:#FDA'>tests => X</span>.</span>
+						<p class='fragment'>Without this, <span style='color:#FDA'>done_testing()</span> is required to know that the suite has run each intended test.</p>
+					</section>
+					<section>
+						<h3>Sometimes old tests may want t
+use Test::More skip_all => $skip_reason;
+
+my $var = 2;
+isnt( $var, 1, '2 could never be 1');
+is( $var, 2, '2 is 1 with itself' );
+
+done_testing();
+				</section>
 				
 				<section>
 					<section>
